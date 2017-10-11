@@ -4,6 +4,7 @@ Symfony 3.3 forms workshop
 Notes:
 - `composer install`
 - Initialise database: `bin/console doctrine:schema:update --force`
+- setup webserver
 
 Task:
 1) Create a Person and Email forms in the first page of the project
