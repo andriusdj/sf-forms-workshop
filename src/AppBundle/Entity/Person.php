@@ -42,8 +42,17 @@ class Person
      * @ORM\Column(name="dateOfBirth", type="integer")
      */
     private $dateOfBirth;
+
+    /**
+     * @var Company
+     *
+     * @ORM\ManyToOne(targetEntity="Company", inversedBy="people", cascade={"persist", "remove"})
+     */
+    private $company;
+
     /**
      * @var ArrayCollection
+     *
      * @ORM\OneToMany(targetEntity="Email", cascade={"persist", "remove"}, mappedBy="owner")
      */
     private $emails;
@@ -117,11 +126,11 @@ class Person
     /**
      * Set dateOfBirth
      *
-     * @param string $dateOfBirth
+     * @param int $dateOfBirth
      *
      * @return Person
      */
-    public function setDateOfBirth($dateOfBirth)
+    public function setDateOfBirth(int $dateOfBirth)
     {
         $this->dateOfBirth = $dateOfBirth;
 
@@ -131,7 +140,7 @@ class Person
     /**
      * Get dateOfBirth
      *
-     * @return string
+     * @return int
      */
     public function getDateOfBirth()
     {
@@ -139,21 +148,21 @@ class Person
     }
 
     /**
-     * @return ArrayCollection
+     * @return Email[]
      */
     public function getEmails()
     {
-        return $this->emails;
+        return $this->emails->toArray();
     }
 
     /**
-     * @param ArrayCollection $emails
+     * @param array $emails
      *
      * @return Person
      */
-    public function setEmails(ArrayCollection $emails)
+    public function setEmails(array $emails)
     {
-        $this->emails = $emails;
+        $this->emails = new ArrayCollection($emails);
 
         return $this;
     }
@@ -169,5 +178,26 @@ class Person
 
         return $this;
     }
+
+    /**
+     * @return Company
+     */
+    public function getCompany()
+    {
+        return $this->company;
+    }
+
+    /**
+     * @param Company $company
+     *
+     * @return Person
+     */
+    public function setCompany(Company $company)
+    {
+        $this->company = $company;
+
+        return $this;
+    }
+
 }
 
