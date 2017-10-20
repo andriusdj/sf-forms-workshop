@@ -70,23 +70,12 @@ class DefaultController extends Controller
     /**
      * @param Person $person
      *
-     * @return Response
-     * @Route("/person/remove")
+     * @return RedirectResponse
+     * @Route("/person/remove/{person}")
      */
     public function removePersonAction(Person $person): RedirectResponse
     {
         // remove the person
-    }
-
-    /**
-     * @param Request    $request
-     * @param Email|null $email
-     *
-     * @return Response
-     */
-    public function addEditEmailAction(Request $request, Email $email = null): Response
-    {
-        // add new or edit existing email
     }
 
     public function addEditCompanyAction(Request $request, Company $company = null): Response
