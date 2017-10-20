@@ -70,7 +70,7 @@ class Person
      *
      * @return int
      */
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -82,7 +82,7 @@ class Person
      *
      * @return Person
      */
-    public function setFirstName($firstName)
+    public function setFirstName($firstName): Person
     {
         $this->firstName = $firstName;
 
@@ -94,7 +94,7 @@ class Person
      *
      * @return string
      */
-    public function getFirstName()
+    public function getFirstName(): ?string
     {
         return $this->firstName;
     }
@@ -106,7 +106,7 @@ class Person
      *
      * @return Person
      */
-    public function setLastName($lastName)
+    public function setLastName($lastName): Person
     {
         $this->lastName = $lastName;
 
@@ -118,7 +118,7 @@ class Person
      *
      * @return string
      */
-    public function getLastName()
+    public function getLastName(): ?string
     {
         return $this->lastName;
     }
@@ -130,7 +130,7 @@ class Person
      *
      * @return Person
      */
-    public function setDateOfBirth(int $dateOfBirth)
+    public function setDateOfBirth(int $dateOfBirth): Person
     {
         $this->dateOfBirth = $dateOfBirth;
 
@@ -142,7 +142,7 @@ class Person
      *
      * @return int
      */
-    public function getDateOfBirth()
+    public function getDateOfBirth(): ?int
     {
         return $this->dateOfBirth;
     }
@@ -150,7 +150,7 @@ class Person
     /**
      * @return Email[]
      */
-    public function getEmails()
+    public function getEmails(): array
     {
         return $this->emails->toArray();
     }
@@ -160,7 +160,7 @@ class Person
      *
      * @return Person
      */
-    public function setEmails(array $emails)
+    public function setEmails(array $emails): Person
     {
         $this->emails = new ArrayCollection($emails);
 
@@ -172,7 +172,7 @@ class Person
      *
      * @return Person
      */
-    public function addEmail(Email $email)
+    public function addEmail(Email $email): Person
     {
         $this->emails->add($email);
 
@@ -182,7 +182,7 @@ class Person
     /**
      * @return Company
      */
-    public function getCompany()
+    public function getCompany(): ?Company
     {
         return $this->company;
     }
@@ -192,12 +192,27 @@ class Person
      *
      * @return Person
      */
-    public function setCompany(Company $company)
+    public function setCompany(Company $company): Person
     {
         $this->company = $company;
 
         return $this;
     }
 
+    /**
+     * @return \DateTime
+     */
+    public function formatDateOfBirth(): \DateTime
+    {
+        return (new \DateTime())->setTimestamp($this->getDateOfBirth());
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString(): string
+    {
+        return $this->firstName . ' ' . $this->lastName;
+    }
 }
 

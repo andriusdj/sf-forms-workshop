@@ -56,7 +56,7 @@ class Company
      *
      * @return int
      */
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -68,7 +68,7 @@ class Company
      *
      * @return Company
      */
-    public function setName($name)
+    public function setName($name): Company
     {
         $this->name = $name;
 
@@ -80,7 +80,7 @@ class Company
      *
      * @return string
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -92,7 +92,7 @@ class Company
      *
      * @return Company
      */
-    public function setAddress($address)
+    public function setAddress($address): Company
     {
         $this->address = $address;
 
@@ -104,7 +104,7 @@ class Company
      *
      * @return string
      */
-    public function getAddress()
+    public function getAddress(): ?string
     {
         return $this->address;
     }
@@ -112,7 +112,7 @@ class Company
     /**
      * @return Person[]
      */
-    public function getPeople()
+    public function getPeople(): array
     {
         return $this->people->toArray();
     }
@@ -122,7 +122,7 @@ class Company
      *
      * @return Company
      */
-    public function setPeople(array $people)
+    public function setPeople(array $people): Company
     {
         $this->people = new ArrayCollection($people);
 
@@ -134,7 +134,7 @@ class Company
      *
      * @return Company
      */
-    public function addPerson(Person $person)
+    public function addPerson(Person $person): Company
     {
         $this->people->add($person);
 

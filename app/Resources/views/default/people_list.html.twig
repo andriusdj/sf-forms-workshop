@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Full Name</th>
+            <td>Date of Birth</td>
+            <th>Email</th>
+            <th>Company Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for person in people %}
+            <tr>
+                <td>{{ person.id }}</td>
+                <td>{{ person.firstName }} {{ person.lastName }}</td>
+                <td>{{ person.formatDateOfBirth|date('Y-m-d') }}</td>
+                <td>{{ person.emails|join(', ') }}</td>
+                <td>{{ person.company.name }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">No records.</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <td>Address</td>
+            <td>People</td>
+        </tr>
+        </thead>
+        <tbody>
+        {% for company in list %}
+            <tr>
+                <td>{{ company.id }}</td>
+                <td>{{ company.name }}</td>
+                <td>{{ company.address }}</td>
+                <td>{{ company.people|join(', ') }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">No records.</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

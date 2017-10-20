@@ -15,4 +15,6 @@ Requirements:
 Task:
 1) Create a Person and Email forms in the first page of the project
 2) Create a Form transformer for date of birth (Date object <-> integer timestamp)
-3) Use validators for all fields
+3) Create a Form transformer for email string to email entity
+4) Use validators for all fields
+5) Create custom validator for email field (check host and ensure user exists within the host)

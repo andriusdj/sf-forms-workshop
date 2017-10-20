@@ -46,7 +46,7 @@ class Email
      *
      * @return int
      */
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -58,7 +58,7 @@ class Email
      *
      * @return Email
      */
-    public function setUsername($username)
+    public function setUsername($username): Email
     {
         $this->username = $username;
 
@@ -70,7 +70,7 @@ class Email
      *
      * @return string
      */
-    public function getUsername()
+    public function getUsername(): ?string
     {
         return $this->username;
     }
@@ -82,7 +82,7 @@ class Email
      *
      * @return Email
      */
-    public function setDomain($domain)
+    public function setDomain($domain): Email
     {
         $this->domain = $domain;
 
@@ -94,7 +94,7 @@ class Email
      *
      * @return string
      */
-    public function getDomain()
+    public function getDomain(): ?string
     {
         return $this->domain;
     }
@@ -104,7 +104,7 @@ class Email
      *
      * @return Email
      */
-    public function setOwner($owner)
+    public function setOwner($owner): Email
     {
         $this->owner = $owner;
 
@@ -114,9 +114,17 @@ class Email
     /**
      * @return Person
      */
-    public function getOwner()
+    public function getOwner(): ?Person
     {
         return $this->owner;
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString(): string
+    {
+        return $this->getUsername() . '@' . $this->getDomain();
     }
 }
 

@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Repository\AddressRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -75,7 +76,7 @@ class Address
      *
      * @return int
      */
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -87,7 +88,7 @@ class Address
      *
      * @return Address
      */
-    public function setBuilding($building)
+    public function setBuilding($building): Address
     {
         $this->building = $building;
 
@@ -99,7 +100,7 @@ class Address
      *
      * @return string
      */
-    public function getBuilding()
+    public function getBuilding(): ?string
     {
         return $this->building;
     }
@@ -111,7 +112,7 @@ class Address
      *
      * @return Address
      */
-    public function setStreet($street)
+    public function setStreet($street): Address
     {
         $this->street = $street;
 
@@ -123,7 +124,7 @@ class Address
      *
      * @return string
      */
-    public function getStreet()
+    public function getStreet(): ?string
     {
         return $this->street;
     }
@@ -135,7 +136,7 @@ class Address
      *
      * @return Address
      */
-    public function setBlock($block)
+    public function setBlock($block): Address
     {
         $this->block = $block;
 
@@ -147,7 +148,7 @@ class Address
      *
      * @return string
      */
-    public function getBlock()
+    public function getBlock(): ?string
     {
         return $this->block;
     }
@@ -159,7 +160,7 @@ class Address
      *
      * @return Address
      */
-    public function setCity($city)
+    public function setCity($city): Address
     {
         $this->city = $city;
 
@@ -171,7 +172,7 @@ class Address
      *
      * @return string
      */
-    public function getCity()
+    public function getCity(): ?string
     {
         return $this->city;
     }
@@ -183,7 +184,7 @@ class Address
      *
      * @return Address
      */
-    public function setZip($zip)
+    public function setZip($zip): Address
     {
         $this->zip = $zip;
 
@@ -195,7 +196,7 @@ class Address
      *
      * @return string
      */
-    public function getZip()
+    public function getZip(): ?string
     {
         return $this->zip;
     }
@@ -207,7 +208,7 @@ class Address
      *
      * @return Address
      */
-    public function setCountry($country)
+    public function setCountry($country): Address
     {
         $this->country = $country;
 
@@ -219,7 +220,7 @@ class Address
      *
      * @return string
      */
-    public function getCountry()
+    public function getCountry(): ?string
     {
         return $this->country;
     }
@@ -231,7 +232,7 @@ class Address
      *
      * @return Address
      */
-    public function setApartment($apartment)
+    public function setApartment($apartment): Address
     {
         $this->apartment = $apartment;
 
@@ -243,7 +244,7 @@ class Address
      *
      * @return string
      */
-    public function getApartment()
+    public function getApartment(): ?string
     {
         return $this->apartment;
     }
