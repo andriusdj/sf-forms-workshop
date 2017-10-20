@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Company;
 use AppBundle\Entity\Email;
 use AppBundle\Entity\Person;
+use AppBundle\Form\PersonType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -64,7 +65,21 @@ class DefaultController extends Controller
      */
     public function addEditPersonAction(Request $request, Person $person = null): Response
     {
-        // add new or edit existing action
+        if (!$person) {
+            $person = new Person();
+        }
+
+        $form = $this->createForm(PersonType::class, $person);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->persist($person);
+            $this->getDoctrine()->getManager()->flush();
+
+            $this->redirectToRoute('person.list');
+        }
+
+        return $this->render('default/form.html.twig', ['form' => $form->createView()]);
     }
 
     /**
